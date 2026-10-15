@@ -1,55 +1,228 @@
-# Netimo Gizlilik Politikası
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netimo Gizlilik Politikası</title>
+  <meta name="description" content="Netimo uygulamasının hangi verileri nasıl işlediğini açıklayan gizlilik politikası.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    :root {
+      --bg: #f6f6fb;
+      --surface: #ffffff;
+      --ink: #1b1840;
+      --ink-2: #3f3b66;
+      --muted: #6b6890;
+      --line: #e4e2f2;
+      --brand: #352e9b;
+      --brand-2: #4f46e5;
+      --brand-soft: #eeedfb;
+      --accent: #8bd03c;
+      --shadow: 0 1px 2px rgba(27, 24, 64, 0.06), 0 8px 24px rgba(27, 24, 64, 0.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d0b24;
+        --surface: #17143a;
+        --ink: #f2f1ff;
+        --ink-2: #d6d4f2;
+        --muted: #a29fc9;
+        --line: #2b2760;
+        --brand: #8b84ff;
+        --brand-2: #a5a0ff;
+        --brand-soft: #221e52;
+        --shadow: none;
+      }
+    }
 
-**Son güncelleme:** 15.10.2026
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink-2);
+      font: 16px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    a { color: var(--brand-2); text-underline-offset: 2px; }
+    a:hover { text-decoration-thickness: 2px; }
 
-Bu politika, elfdev ("biz") tarafından geliştirilen Netimo mobil uygulamasının ("Uygulama") hangi verileri nasıl işlediğini açıklar.
+    .hero {
+      background: linear-gradient(135deg, #352e9b 0%, #4f46e5 100%);
+      color: #fff;
+      padding: 48px 16px 88px;
+    }
+    .hero-inner, main { max-width: 760px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand img { width: 56px; height: 56px; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+    .brand span { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.2px; }
+    h1 { margin: 28px 0 8px; font-size: clamp(1.75rem, 5vw, 2.4rem); line-height: 1.2; color: #fff; }
+    .updated { margin: 0; color: rgba(255,255,255,0.8); font-size: 0.95rem; }
 
-## Özet
+    main { padding: 0 16px 48px; margin-top: -56px; }
 
-- Netimo'da hesap yoktur; adını, e-postanı veya telefon numaranı istemeyiz.
-- Girdiğin deneme sonuçları, soru kayıtları, hedefler ve ayarlar **yalnızca kendi cihazında** saklanır. Bu veriler bize veya başka bir sunucuya gönderilmez.
-- Uygulama reklam gösterir ve uygulama içi satın alma sunar. Bunlar için aşağıda adı geçen hizmet sağlayıcıları sınırlı cihaz verisi işler.
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .point {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .point .icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: grid; place-items: center;
+      background: var(--brand-soft); color: var(--brand);
+      margin-bottom: 10px;
+    }
+    .point .icon svg { width: 20px; height: 20px; }
+    .point strong { display: block; color: var(--ink); margin-bottom: 2px; }
+    .point p { margin: 0; font-size: 0.93rem; color: var(--muted); line-height: 1.5; }
 
-## Cihazında saklanan veriler
+    .card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 8px 28px 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    section + section { border-top: 1px solid var(--line); }
+    section { padding-top: 4px; }
+    h2 { color: var(--ink); font-size: 1.25rem; margin: 24px 0 8px; }
+    h3 { color: var(--ink); font-size: 1.05rem; margin: 20px 0 6px; }
+    p { margin: 0 0 12px; }
+    ul { margin: 0 0 12px; padding-left: 1.2em; }
+    li { margin-bottom: 6px; }
+    li::marker { color: var(--brand-2); }
+    strong { color: var(--ink); }
 
-Deneme sonuçların, yanlış yaptığın konular, günlük soru kayıtların, hedeflerin, oluşturduğun sınav türleri ve uygulama ayarların telefonundaki yerel bir veritabanında tutulur. Bu verilere biz erişemeyiz.
+    .contact {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--brand-soft); border-radius: 14px; padding: 16px 18px; margin-top: 8px;
+    }
+    .contact .who { color: var(--ink); font-weight: 600; }
+    .button {
+      display: inline-block; background: var(--brand-2); color: #fff; text-decoration: none;
+      padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 0.95rem;
+    }
+    @media (prefers-color-scheme: dark) { .button { color: #0d0b24; } }
 
-- **Yedekleme:** "Yedeği kaydet" veya "Yedeği paylaş" seçeneklerini kullandığında bu veriler bir dosyaya yazılır. Dosyanın nereye kaydedileceğine veya kiminle paylaşılacağına sen karar verirsin.
-- **Android yedeklemesi:** Telefonunda Google yedeklemesi açıksa Android, uygulama verilerini Google hesabına yedekleyebilir. Bu, Google'ın kendi hizmetidir ve telefonunun ayarlarından yönetilir.
-- **Bildirimler:** Günlük hatırlatıcılar telefonunda yerel olarak planlanır; bunun için herhangi bir sunucuya veri gönderilmez.
-- **Silme:** Verilerini uygulamayı kaldırarak veya telefonunun ayarlarından uygulama verilerini temizleyerek silebilirsin.
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 24px; }
 
-## Üçüncü taraf hizmetler
+    @media (min-width: 640px) {
+      .summary { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .card { padding: 4px 18px 20px; border-radius: 16px; }
+      .hero { padding-top: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <img src="icon.png" alt="" width="56" height="56">
+        <span>Netimo</span>
+      </div>
+      <h1>Gizlilik Politikası</h1>
+      <p class="updated">Son güncelleme: 15.10.2026</p>
+    </div>
+  </header>
 
-### Reklamlar: Google AdMob
+  <main>
+    <div class="summary" aria-label="Kısaca">
+      <div class="point">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/><path d="M3 3l18 18"/></svg>
+        </div>
+        <strong>Hesap yok</strong>
+        <p>Adını, e-postanı veya telefon numaranı istemeyiz.</p>
+      </div>
+      <div class="point">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+        </div>
+        <strong>Verilerin cihazında</strong>
+        <p>Deneme sonuçların, soru kayıtların ve ayarların yalnızca telefonunda saklanır.</p>
+      </div>
+      <div class="point">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 21h10"/><path d="M12 17v4"/></svg>
+        </div>
+        <strong>Reklam ve satın alma</strong>
+        <p>Bunlar için Google AdMob ve RevenueCat sınırlı cihaz verisi işler.</p>
+      </div>
+    </div>
 
-Uygulamanın ücretsiz sürümü, Google LLC'nin AdMob hizmetiyle reklam gösterir. AdMob reklam sunmak, ölçmek ve dolandırıcılığı önlemek için cihazından şu verileri toplayabilir: reklam kimliği (Android Advertising ID), IP adresi (ve buna bağlı yaklaşık konum), cihaz ve uygulama bilgileri, reklamlarla etkileşimler ve teşhis bilgileri.
+    <article class="card">
+      <section>
+        <p style="margin-top:24px">Bu politika, <strong>elfdev</strong> ("biz") tarafından geliştirilen Netimo mobil uygulamasının ("Uygulama") hangi verileri nasıl işlediğini açıklar.</p>
+      </section>
 
-- Reklam kimliğini telefonunun **Ayarlar → Google → Reklamlar** bölümünden sıfırlayabilir veya silebilirsin.
-- Bazı bölgelerde uygulama ilk açılışta reklam tercihlerin için onay ister.
-- Ayrıntılar için: [Google Gizlilik Politikası](https://policies.google.com/privacy) ve [Google'ın iş ortaklarının uygulamalarından gelen verileri nasıl kullandığı](https://policies.google.com/technologies/partner-sites).
+      <section>
+        <h2>Cihazında saklanan veriler</h2>
+        <p>Deneme sonuçların, yanlış yaptığın konular, günlük soru kayıtların, hedeflerin, oluşturduğun sınav türleri ve uygulama ayarların telefonundaki yerel bir veritabanında tutulur. Bu veriler bize veya başka bir sunucuya gönderilmez; bunlara biz erişemeyiz.</p>
+        <ul>
+          <li><strong>Yedekleme:</strong> "Yedeği kaydet" veya "Yedeği paylaş" seçeneklerini kullandığında bu veriler bir dosyaya yazılır. Dosyanın nereye kaydedileceğine veya kiminle paylaşılacağına sen karar verirsin.</li>
+          <li><strong>Android yedeklemesi:</strong> Telefonunda Google yedeklemesi açıksa Android, uygulama verilerini Google hesabına yedekleyebilir. Bu, Google'ın kendi hizmetidir ve telefonunun ayarlarından yönetilir.</li>
+          <li><strong>Bildirimler:</strong> Günlük hatırlatıcılar telefonunda yerel olarak planlanır; bunun için herhangi bir sunucuya veri gönderilmez.</li>
+          <li><strong>Silme:</strong> Verilerini uygulamayı kaldırarak veya telefonunun ayarlarından uygulama verilerini temizleyerek silebilirsin.</li>
+        </ul>
+      </section>
 
-### Uygulama içi satın alma: Google Play ve RevenueCat
+      <section>
+        <h2>Üçüncü taraf hizmetler</h2>
 
-Netimo Pro satın alımları Google Play üzerinden yapılır. Ödeme bilgilerin Google tarafından işlenir; biz kart bilgilerini görmeyiz. Satın alımının doğrulanması ve başka bir cihazda geri yüklenebilmesi için RevenueCat, Inc. satın alma geçmişini ve rastgele oluşturulan anonim bir kullanıcı kimliğini işler. Ayrıntılar için: [RevenueCat Gizlilik Politikası](https://www.revenuecat.com/privacy).
+        <h3>Reklamlar: Google AdMob</h3>
+        <p>Uygulamanın ücretsiz sürümü, Google LLC'nin AdMob hizmetiyle reklam gösterir. AdMob reklam sunmak, ölçmek ve dolandırıcılığı önlemek için cihazından şu verileri toplayabilir: reklam kimliği (Android Advertising ID), IP adresi (ve buna bağlı yaklaşık konum), cihaz ve uygulama bilgileri, reklamlarla etkileşimler ve teşhis bilgileri.</p>
+        <ul>
+          <li>Reklam kimliğini telefonunun <strong>Ayarlar → Google → Reklamlar</strong> bölümünden sıfırlayabilir veya silebilirsin.</li>
+          <li>Bazı bölgelerde uygulama ilk açılışta reklam tercihlerin için onay ister.</li>
+          <li>Ayrıntılar için: <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a> ve <a href="https://policies.google.com/technologies/partner-sites">Google'ın iş ortaklarının uygulamalarından gelen verileri nasıl kullandığı</a>.</li>
+        </ul>
 
-## Çocuklar
+        <h3>Uygulama içi satın alma: Google Play ve RevenueCat</h3>
+        <p>Netimo Pro satın alımları Google Play üzerinden yapılır. Ödeme bilgilerin Google tarafından işlenir; biz kart bilgilerini görmeyiz. Satın alımının doğrulanması ve başka bir cihazda geri yüklenebilmesi için RevenueCat, Inc. satın alma geçmişini ve rastgele oluşturulan anonim bir kullanıcı kimliğini işler. Ayrıntılar için: <a href="https://www.revenuecat.com/privacy">RevenueCat Gizlilik Politikası</a>.</p>
+      </section>
 
-Netimo, 13 yaş ve üzeri öğrenciler için tasarlanmıştır. 13 yaşından küçük çocuklardan bilerek veri toplamayız.
+      <section>
+        <h2>Çocuklar</h2>
+        <p>Netimo, 13 yaş ve üzeri öğrenciler için tasarlanmıştır. 13 yaşından küçük çocuklardan bilerek veri toplamayız.</p>
+      </section>
 
-## Veri güvenliği
+      <section>
+        <h2>Veri güvenliği</h2>
+        <p>Hizmet sağlayıcılara iletilen veriler şifreli bağlantı (HTTPS/TLS) üzerinden gönderilir. Cihazında saklanan veriler telefonunun kendi güvenlik önlemleriyle korunur.</p>
+      </section>
 
-Hizmet sağlayıcılara iletilen veriler şifreli bağlantı (HTTPS/TLS) üzerinden gönderilir. Cihazında saklanan veriler telefonunun kendi güvenlik önlemleriyle korunur.
+      <section>
+        <h2>Hakların</h2>
+        <p>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve geçerli diğer mevzuat kapsamındaki hakların için (bilgi talep etme, düzeltme, silme gibi) bize aşağıdaki adresten ulaşabilirsin. Satın alma kayıtlarının RevenueCat'ten silinmesini de bu adres üzerinden isteyebilirsin.</p>
+      </section>
 
-## Hakların
+      <section>
+        <h2>Değişiklikler</h2>
+        <p>Bu politikayı güncellediğimizde yeni sürümü bu sayfada yayımlar ve üstteki tarihi değiştiririz.</p>
+      </section>
 
-6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve geçerli diğer mevzuat kapsamındaki hakların için (bilgi talep etme, düzeltme, silme gibi) bize aşağıdaki adresten ulaşabilirsin. Satın alma kayıtlarının RevenueCat'ten silinmesini de bu adres üzerinden isteyebilirsin.
+      <section>
+        <h2>İletişim</h2>
+        <div class="contact">
+          <div>
+            <div class="who">elfdev</div>
+            <a href="mailto:elfdev.tr@gmail.com">elfdev.tr@gmail.com</a>
+          </div>
+          <a class="button" href="mailto:elfdev.tr@gmail.com?subject=Netimo%20gizlilik">E-posta gönder</a>
+        </div>
+      </section>
+    </article>
 
-## Değişiklikler
-
-Bu politikayı güncellediğimizde yeni sürümü bu sayfada yayımlar ve üstteki tarihi değiştiririz.
-
-## İletişim
-
-elfdev  
-E-posta: elfdev.tr@gmail.com
+    <footer>© 2026 elfdev · Netimo</footer>
+  </main>
+</body>
+</html>
